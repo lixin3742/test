@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript">
+          Vue.config.keyCodes={
+          	a:65,
+          	f1:112
+          }
+          window.onload=function(){
+          	let vm=new Vue({
+          		el:"#itany",
+	          	methods:{
+	          		show(e){
+	          			console.log(e.keyCode);
+	          			if(e.keyCode==13){
+	          				console.log('您按了回车键');
+	          			}
+	          		},
+	          		print(){
+	          			console.log('22222222222');
+	          		}
+	          	}
+          	})
+          }
+	</script>
+</head>
+<body>
+	<div id="itany">
+		<!-- 键盘事件：@keydown、@keypress、@keyup -->
+		用户名：<input  type="text" @keydown="show($event)">
+		<button @click.once='print'>触发一次</button>
+	</div>
+</body>
+</html>
